@@ -1,0 +1,11 @@
+{
+  "name": "node_backend",
+  "version": "1.0.0",
+  "description": "permet de créer ma 1ere api rest et de la lier a mon repo angular-practice",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jean Balangué",
+  "license": "ISC"
+}
