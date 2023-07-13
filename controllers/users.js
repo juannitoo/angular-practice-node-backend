@@ -41,7 +41,6 @@ exports.deleteUser = (req, res, next) => {
 }
 
 exports.signup = (req, res, next) => {
-  console.log(req.body)
   bcrypt.hash(req.body.password, 10)
     .then(hash => {
       const user = new User({
@@ -57,7 +56,7 @@ exports.signup = (req, res, next) => {
 
 exports.login = (req, res, next) => {
   User.findOne({ email: req.body.email })
-    .then(user => {
+  .then(user => {
       if (!user) {
         return res.status(401).json({ message: 'Identifiants incorrects'})
       }
@@ -68,14 +67,19 @@ exports.login = (req, res, next) => {
           }
           res.status(200).json({
             userId: user._id,
+            email: user.email,
+            status: 200,
             token: jwt.sign(
               { userId: user._id },
-              'RANDOM_TOKEN_SECRET',  // (Math.random().toString(36)) 
-              { expiresIn: '24h' }
-            )
+              'RANDOM_TOKEN_SECRET',  // a mettre dans un fichier .env et à gérer avec dotenv
+              { expiresIn: '2h' }
+            ),
+            message : "identification réussie"
           })
         })
-        .catch(error => res.status(500).json({ error }))
+        .catch(error => { res.status(500).json({ error }); console.log("fail 500 1 then bcrypt") }) 
     })
-    .catch(error => res.status(500).json({ error }))
+    .catch(error => {res.status(500).json({ error }); console.log("fail 2 then général") })
+
+
 }
