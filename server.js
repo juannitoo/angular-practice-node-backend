@@ -1,5 +1,6 @@
 const http = require('http')
 const app = require('./app')
+const process = require('process')
 
 const normalizePort = val => {
   const port = parseInt(val, 10)
@@ -12,7 +13,7 @@ const normalizePort = val => {
   return false
 }
 
-const port = normalizePort(process.env.PORT || '3001')
+const port = normalizePort(process.env.PORT || '3001') 
 
 app.set('port', port)
 
@@ -47,3 +48,9 @@ server.on('listening', () => {
 })
 
 server.listen(port)
+
+// pour que CTRL + C coupe le conteneur docker
+process.on('SIGINT', () => {
+  console.info("Interrupted")
+  process.exit(0)
+})
