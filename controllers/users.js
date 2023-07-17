@@ -12,10 +12,10 @@ exports.getUsers = (req, res, next) => {
 }
 
 exports.getUser = (req, res, next) => {
-  User.findOne({ _id: req.params.id }
+  User.findOne({ _id: req.params.id })
     .then( (users) => { res.status(200).json(users) })
     .catch( (error) => { res.status(401).json({error}) })
-)}
+}
 
 exports.postUser = (req, res, next) => {
   delete req.body._id

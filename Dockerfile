@@ -8,9 +8,7 @@ COPY package.json .
 RUN npm install --omit=dev
 COPY . .
 
-# ENV NODE_ENV production
-
-EXPOSE 80
+EXPOSE 3001
 
 CMD ["node", "server.js"]
 
@@ -22,6 +20,3 @@ CMD ["node", "server.js"]
 # docker image ls
 # docker container rm container_id
 # docker images rm image_id
-
-# j"expose le port 80 du conteneur mappé au port 3001 de node
-# comme ca adresse http://localhost/ et ca fonctionne

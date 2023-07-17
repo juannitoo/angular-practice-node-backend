@@ -59,3 +59,21 @@ https://docs.docker.com/engine/reference/commandline/build/#tag
 
 ### pour sortir un pdf du contenu avec chrome headless
 <code>google-chrome --headless=new --print-to-pdf https://developer.chrome.com/</code>
+
+
+
+# pour envoyer l'image, créer le referentiel et suivre les instructions donnés sur le referentiel
+docker tag angular-practice-node-130723-20h 214622732998.dkr.ecr.eu-west-3.amazonaws.com/ecr-backend-node-angular-practice:latest
+
+# pour mettre le conteneur en route sur ecs, faut définir une tache
+https://docs.aws.amazon.com/fr_fr/AmazonECS/latest/developerguide/getting-started-fargate.html
+
+# https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-security-groups.html#adding-security-group-rule
+ajouter des regles tcp udp
+
+pour donner un role il faut aller voir dans iam et chercher ecs 
+arn:aws:iam::214622732998:role/aws-service-role/ecs.amazonaws.com/AWSServiceRoleForECS
+
+# il faut ouvrir tous les port outbound dans le vpc aws et le port inbound du conteneur aussi dans aws (symetrie ici 3001)
+
+# enfin autoriser l'utilisateur iam a utilser mongo Atlas, ou le process, a tester, là les 2 sont ouverts
