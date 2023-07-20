@@ -13,8 +13,12 @@ EXPOSE 3001
 CMD ["node", "server.js"]
 
 
-# docker build -t angular-practice-node-1307-16h .
-# docker run -p 80:3001 angular-practice-node-1307-16h
+# docker build -t angular-practice-node-200723 .
+# docker run -p 3001:3001 angular-practice-node-200723
+
+# aws ecr get-login-password --region eu-west-3 | docker login --username AWS --password-stdin 214622732998.dkr.ecr.eu-west-3.amazonaws.com
+# docker tag angular-practice-node-200723 214622732998.dkr.ecr.eu-west-3.amazonaws.com/ecr-backend-node-angular-practice:latest
+# docker push 214622732998.dkr.ecr.eu-west-3.amazonaws.com/ecr-backend-node-angular-practice:latest
 
 # docker container ls -a
 # docker image ls
