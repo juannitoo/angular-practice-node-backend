@@ -48,16 +48,18 @@ exports.signup = (req, res, next) => {
         password: hash
       })
       user.save()
-        .then(() => res.status(201).json({ 
-          message: 'Utilisateur créé !',
-          userId: user._id,
-          status: 200,
-          token: jwt.sign(
-            { userId: user._id },
-            'RANDOM_TOKEN_SECRET',  // a mettre dans un fichier .env et à gérer avec dotenv
-            { expiresIn: '2h' }
-          ),
-        }))
+        .then(() => { 
+          res.status(201).json({ 
+            message: 'Utilisateur créé !',
+            userId: user._id,
+            status: 200,
+            token: jwt.sign(
+              { userId: user._id },
+              'RANDOM_TOKEN_SECRET',  // a mettre dans un fichier .env et à gérer avec dotenv
+              { expiresIn: '2h' }
+            ),
+          })
+        })
         .catch(error => res.status(400).json({ error }))
     })
     .catch(error => res.status(500).json({ error }))
