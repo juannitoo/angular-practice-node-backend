@@ -5,7 +5,7 @@ const auth = require('../middlewares/auth')
 
 router.get('/', auth, userCtrl.getUsers)
 router.post('/', userCtrl.postUser)
-router.get('/:id', userCtrl.getUser)
+router.get('/:id', auth, userCtrl.getUser)
 router.put('/:id', userCtrl.updateUser)
 router.delete('/:id', auth, userCtrl.deleteUser)
 
