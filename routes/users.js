@@ -11,5 +11,6 @@ router.delete('/:id', auth, userCtrl.deleteUser)
 
 router.post('/signup', userCtrl.signup)
 router.post('/login', userCtrl.login)
+router.post('/isemailused', userCtrl.isEmailUsed)
 
 module.exports = router

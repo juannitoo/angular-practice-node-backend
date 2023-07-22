@@ -50,9 +50,9 @@ exports.signup = (req, res, next) => {
       user.save()
         .then(() => { 
           res.status(201).json({ 
-            message: 'Utilisateur créé !',
-            userId: user._id,
             status: 200,
+            // message: 'Utilisateur créé !',
+            userId: user._id,
             token: jwt.sign(
               { userId: user._id },
               'RANDOM_TOKEN_SECRET',  // a mettre dans un fichier .env et à gérer avec dotenv
@@ -91,6 +91,11 @@ exports.login = (req, res, next) => {
         .catch(error => { res.status(500).json({ error }); console.log("fail 500 1 then bcrypt") }) 
     })
     .catch(error => {res.status(500).json({ error }); console.log("fail 2 then général") })
+}
 
-
+exports.isEmailUsed = (req, res, next) => {
+  User.findOne({ email: req.body.email })
+    .then( (user) => {
+      return user !== null ? res.status(200).json({  resp : true }) : res.status(200).json({  resp : false })
+    }).catch( (resp) => res.status(401).json({  resp : null }))
 }
