@@ -27,9 +27,9 @@ app.use((req, res, next) => {
     next()
   });
 
-// affiche la date sur le point d'entrée pour verif qu'il fonctionne sans requeter
+// test image ecs service aws mis à jour auto lors d'un push
 app.get('/', (req, res, next) => {
-    res.status(200).json({ date: new Date() })
+    res.status(200).json({ tentative: "3" })
     next()
  })
 
