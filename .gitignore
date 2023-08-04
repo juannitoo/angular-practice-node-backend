@@ -1,4 +1,3 @@
 node_modules/
-db-connection/db-connection.js
 .env
 README_AWS.md

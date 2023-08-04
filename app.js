@@ -27,7 +27,7 @@ app.use((req, res, next) => {
     next()
   });
 
-// test image ecs service aws mis à jour auto lors d'un push
+// test image ecs service aws pour vérifier le déploiement de la bonne image lors d'une maj
 app.get('/', (req, res, next) => {
     res.status(200).json({ tentative: "3" })
     next()
