@@ -1,7 +1,7 @@
 const User = require('../models/user')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-require('dotenv').config()
+
 
 exports.getUsers = (req, res, next) => {
   User.find().then((users) => {
@@ -42,7 +42,6 @@ exports.deleteUser = (req, res, next) => {
 }
 
 exports.signup = (req, res, next) => {
-  // console.log('sign up req :', req)
   bcrypt.hash(req.body.password, 10)
   .then(hash => {
     const user = new User({
