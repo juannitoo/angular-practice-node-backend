@@ -2,6 +2,8 @@ const mongoose = require('mongoose')
 
 const url = process.env.mongoDbAtlasUrl
 
+console.log("db-connect : ", process.env.dbName)
+
 const connection = mongoose.connect( url,
   { useNewUrlParser: true,
     useUnifiedTopology: true,

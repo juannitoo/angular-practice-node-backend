@@ -1,6 +1,8 @@
-const User = require('./models/user')
 const express = require('express')
+require('dotenv').config() // chargement ici pour utilisation partout
+const User = require('./models/user')
 const userRoutes = require('./routes/users')
+const authenticationRoutes = require('./routes/authentication')
 
 const app = express()
 const cors = require("cors")
@@ -20,22 +22,14 @@ const corsOptions = {
 
 app.use(cors(corsOptions))
 
-// app.use((req, res, next) => {
-//     res.setHeader('Access-Control-Allow-Origin', '*')
-//     res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization')
-//     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS')
-//     res.setHeader('Access-Control-Allow-Credentials', 'true')
-//     next()
-//   });
-
 // test image ecs service aws pour vérifier le déploiement de la bonne image lors d'une maj
 app.get('/', (req, res, next) => {
-  res.status(200).json({ tentative: "4" })
+  res.status(200).json({ tentative: "5" })
   next()
 })
 
 app.use('/api/users', userRoutes)
-
+app.use('/api/auth', authenticationRoutes)
 
 
 module.exports = app
