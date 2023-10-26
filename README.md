@@ -1,5 +1,8 @@
 # Repo nodeJs qui va avec angular practice
 
-[https://faerulsalamun.medium.com/restful-api-with-node-js-express-and-dynamodb-5059beb3ba7f](https://faerulsalamun.medium.com/restful-api-with-node-js-express-and-dynamodb-5059beb3ba7f)
+Déployé manuellement via Docker avec le CLI sur Aws ECS Fargate
+Serverless !== simplicité, je le sais maintenant ! C'est pas aussi simple que leurs lambdas !
 
-Je me sers de MongoDB Atlas car il n'y a pas le paquet mongoose avec AWS DynamoDB donc pas de modèle et fonctionnement différent avec une bonne dose d'apprentissage. J'essaierai donc dynamoDB plus tard.
+![capture d'écran ecs aws ](./aws-ecs.png "capture d'écran conteneurs disponibles en parallèle sur aws, jusqu'à 8 si besoin, pour le fun et surtout essayer la scalabilité et le 100% du temps disponible, 1 aurait largement suffit sinon")
+
+![capture d'écran vpc perso aws ](./angular-practice-vpc.png "capture d'écran Virtual Private Cloud pour le repo 'angular-practice-node-backend'")
