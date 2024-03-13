@@ -1,7 +1,9 @@
-# Repo nodeJs qui va avec angular practice
+# N'EST PLUS DEPLOYE. 100€/MOIS POUR UN SITE DE DEMO NON UTILISE N'ETAIT PAS TENABLE
+
+### Repo nodeJs qui va avec angular practice
 
 Déployé manuellement via Docker avec le CLI sur Aws ECS Fargate
-Serverless !== simplicité, je le sais maintenant ! C'est pas aussi simple que leurs lambdas !
+Serverless !== simplicité ! Ce n'est pas du tout aussi simple que leurs lambdas si on veut bien faire.
 
 ![capture d'écran ecs aws ](./aws-ecs.png "capture d'écran conteneurs disponibles en parallèle sur aws, jusqu'à 8 si besoin, pour essayer la scalabilité et le 100% du temps disponible, 1 aurait largement suffit sinon")
 
